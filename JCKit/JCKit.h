@@ -14,4 +14,14 @@ FOUNDATION_EXPORT double JCKitVersionNumber;
 //! Project version string for JCKit.
 FOUNDATION_EXPORT const unsigned char JCKitVersionString[];
 
+#import "NSArray+JCKit.h"
+#import "NSData+JCKit.h"
+#import "NSDate+JCKit.h"
+#import "NSDictionary+JCKit.h"
+#import "NSObject+JCKit.h"
+#import "NSString+JCKit.h"
+#import "UIButton+JCKit.h"
+#import "UIColor+JCKit.h"
+#import "UIImage+JCKit.h"
+
 
