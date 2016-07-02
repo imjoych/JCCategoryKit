@@ -3,7 +3,7 @@
 //  JCKit
 //
 //  Created by ChenJianjun on 16/7/1.
-//  Copyright © 2016年 Boych<https://github.com/Boych>. All rights reserved.
+//  Copyright © 2016 Boych<https://github.com/Boych>. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -22,7 +22,7 @@
 
 @interface NSObject (JCHookMethod)
 
-/** hook方法 */
+/** hook操作替换两个实例方法实现。 */
 - (void)swizzlingInClass:(Class)cls
         originalSelector:(SEL)originalSelector
         swizzledSelector:(SEL)swizzledSelector;
