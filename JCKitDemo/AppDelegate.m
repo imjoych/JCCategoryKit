@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "JCKit.h"
 
 @interface AppDelegate ()
 
@@ -14,9 +15,18 @@
 
 @implementation AppDelegate
 
+- (void)kitTest
+{
+    BOOL testBOOL = [@"ioschen@foxmail.com" jc_isEmailValid];
+    testBOOL = [@"https://github.com/Boych" jc_isUrlValid];
+    testBOOL = [@"https://" jc_isUrlValid];
+    testBOOL = [@"16212345678" jc_isPhoneNumber];
+    testBOOL = [@"18212345678" jc_isPhoneNumber];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self kitTest];
     return YES;
 }
 

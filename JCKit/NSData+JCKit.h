@@ -10,6 +10,7 @@
 
 @interface NSData (JCKit)
 
+/// NSData转换成64位字符串
 - (NSString *)jc_base64String;
 
 @end

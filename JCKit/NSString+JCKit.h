@@ -10,10 +10,10 @@
 
 @interface NSString (JCKit)
 
-// 有效字符串判断
+/// 有效字符串判断
 - (BOOL)jc_isValidString;
 
-// 去除字符串首尾空格和换行
+/// 去除字符串首尾空格和换行
 - (NSString *)jc_stringByTrimmingCharacters;
 
 @end
@@ -22,9 +22,10 @@
 
 @interface NSString (JCStringEncoding)
 
-// 字符串编码
+/// 字符串编码
 - (NSString *)jc_encodeString;
-// 字符串解码
+
+/// 字符串解码
 - (NSString *)jc_decodeString;
 
 @end
@@ -33,14 +34,16 @@
 
 @interface NSString (JCStringChecking)
 
-// 正则表达式判断
+/// 正则表达式判断
 - (BOOL)jc_stringCheckingWithPattern:(NSString *)pattern;
 
-// 是否为手机号
+/// 是否为手机号
 - (BOOL)jc_isPhoneNumber;
-// 是否为网络链接
-- (BOOL)jc_isWebLink;
-// 是否为有效邮箱
+
+/// 是否为有效网址
+- (BOOL)jc_isUrlValid;
+
+/// 是否为有效邮箱
 - (BOOL)jc_isEmailValid;
 
 @end
@@ -49,10 +52,10 @@
 
 @interface NSString (JCStringExchange)
 
-// MD5加密
+/// MD5加密
 - (NSString *)jc_md5;
 
-// 16进制转10进制
+/// 16进制转10进制
 - (NSUInteger)jc_decimalNumberWithHexString;
 
 @end

@@ -28,6 +28,6 @@
 
 @interface UIButton (JCHitTest)
 
-@property (nonatomic, assign) UIEdgeInsets hitTestEdgeInsets; ///< 扩展按钮点击区域
+@property (nonatomic, assign) UIEdgeInsets jc_hitTestEdgeInsets; ///< 扩展按钮点击区域
 
 @end

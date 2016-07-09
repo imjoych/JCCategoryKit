@@ -22,17 +22,17 @@
 {
     NSParameterAssert(block);
     return [self objectsAtIndexes:[self indexesOfObjectsPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
-        return block(obj);
+        return block(obj, idx);
     }]];
 }
 
 - (NSArray *)jc_selectAssociatedObjs:(HJAssociatedBlock)block
 {
     NSParameterAssert(block);
-    NSMutableArray *associatedObjs = [NSMutableArray arrayWithCapacity:self.count];
-    for (id obj in self) {
-        [associatedObjs addObject:block(obj)];
-    }
+    __block NSMutableArray *associatedObjs = [NSMutableArray arrayWithCapacity:self.count];
+    [self jc_objWithIndex:^(id obj, NSUInteger idx) {
+        [associatedObjs addObject:block(obj, idx)];
+    }];
     return associatedObjs;
 }
 

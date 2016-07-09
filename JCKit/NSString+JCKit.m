@@ -65,26 +65,19 @@
 
 /*
  * ^[1]，首字母必须是1
- * [3-8]，第二个数字为3-8之间
- * +，表示至少一个[3-8]
+ * [3|4|5|7|8]+，第二个数字为3、4、5、7、8之间的一个
  * \\d，表示数字
  * {9}，表示后面包含9个数字
  * $，结束符
  */
 - (BOOL)jc_isPhoneNumber
 {
-    if (![self jc_isValidString]) {
-        return NO;
-    }
-    return [self jc_stringCheckingWithPattern:@"^[1][3-8]+\\d{9}$"];
+    return [self jc_stringCheckingWithPattern:@"^[1][3|4|5|7|8]+\\d{9}$"];
 }
 
-- (BOOL)jc_isWebLink
+- (BOOL)jc_isUrlValid
 {
-    if (![self jc_isValidString]) {
-        return NO;
-    }
-    return [self jc_stringCheckingWithPattern:@"^(http|https|ftp)://"];
+    return [self jc_stringCheckingWithPattern:@"^((https|http|ftp|rtsp|mms)?:\\/\\/)[^\\s]+"];
 }
 
 - (BOOL)jc_isEmailValid
@@ -99,9 +92,7 @@
     @"9][0-9]?|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21"
     @"-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])";
     
-    NSPredicate *regExPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegEx];
-    BOOL match = [regExPredicate evaluateWithObject:self];
-    return match;
+    return [self jc_stringCheckingWithPattern:emailRegEx];
 }
 
 @end

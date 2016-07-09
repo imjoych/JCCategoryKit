@@ -8,19 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^JCEnumerateBlock)(id obj, NSUInteger index);
-typedef BOOL (^JCPassingTestBlock)(id obj);
-typedef id (^HJAssociatedBlock)(id obj);
+typedef void(^JCEnumerateBlock)(id obj, NSUInteger idx);
+typedef BOOL (^JCPassingTestBlock)(id obj, NSUInteger idx);
+typedef id (^HJAssociatedBlock)(id obj, NSUInteger idx);
 
 @interface NSArray (JCKit)
 
-/** 枚举对象及索引。 */
+/// 枚举对象及索引
 - (void)jc_objWithIndex:(JCEnumerateBlock)block;
 
-/** 获取符合条件的一组对象。 */
+/// 获取符合条件的一组对象
 - (NSArray *)jc_selectObjs:(JCPassingTestBlock)block;
 
-/** 获取与数组对象中相关联的一组数据。 */
+/// 获取与数组对象中相关联的一组数据
 - (NSArray *)jc_selectAssociatedObjs:(HJAssociatedBlock)block;
 
 @end

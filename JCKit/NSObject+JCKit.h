@@ -10,10 +10,10 @@
 
 @interface NSObject (JCKit)
 
-/** 有效实例对象判断 */
+/// 有效实例对象判断
 - (BOOL)jc_isValidObject;
 
-/** 实例对象的属性setter方法。
+/** 实例对象的属性setter方法
  *  @param dictionary 属性 名称-值 键值对
  */
 - (void)jc_setPropertiesValuesWithDictionary:(NSDictionary *)dictionary;
@@ -22,7 +22,7 @@
 
 @interface NSObject (JCHookMethod)
 
-/** hook操作替换两个实例方法实现。 */
+/// hook操作替换两个实例方法实现
 - (void)swizzlingInClass:(Class)cls
         originalSelector:(SEL)originalSelector
         swizzledSelector:(SEL)swizzledSelector;

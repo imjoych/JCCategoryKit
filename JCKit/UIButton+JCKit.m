@@ -43,15 +43,15 @@
 static NSString *const JCHitTestEdgeInsetsKey;
 
 @implementation UIButton (JCHitTest)
-@dynamic hitTestEdgeInsets;
+@dynamic jc_hitTestEdgeInsets;
 
-- (void)setHitTestEdgeInsets:(UIEdgeInsets)hitTestEdgeInsets
+- (void)setJc_hitTestEdgeInsets:(UIEdgeInsets)jc_hitTestEdgeInsets
 {
-    NSValue *value = [NSValue value:&hitTestEdgeInsets withObjCType:@encode(UIEdgeInsets)];
+    NSValue *value = [NSValue value:&jc_hitTestEdgeInsets withObjCType:@encode(UIEdgeInsets)];
     objc_setAssociatedObject(self, &JCHitTestEdgeInsetsKey, value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (UIEdgeInsets)hitTestEdgeInsets
+- (UIEdgeInsets)jc_hitTestEdgeInsets
 {
     NSValue *value = objc_getAssociatedObject(self, &JCHitTestEdgeInsetsKey);
     if (value) {
@@ -66,11 +66,11 @@ static NSString *const JCHitTestEdgeInsetsKey;
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
 {
     if (!self.enabled || self.hidden
-        || UIEdgeInsetsEqualToEdgeInsets(self.hitTestEdgeInsets, UIEdgeInsetsZero)) {
+        || UIEdgeInsetsEqualToEdgeInsets(self.jc_hitTestEdgeInsets, UIEdgeInsetsZero)) {
         return [super pointInside:point withEvent:event];
     }
     
-    return CGRectContainsPoint(UIEdgeInsetsInsetRect(self.bounds, self.hitTestEdgeInsets), point);
+    return CGRectContainsPoint(UIEdgeInsetsInsetRect(self.bounds, self.jc_hitTestEdgeInsets), point);
 }
 
 - (void)dealloc
