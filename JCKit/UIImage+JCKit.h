@@ -38,4 +38,9 @@
  */
 - (NSData *)jc_compressWithLimitSize:(NSInteger)limitSize;
 
+/**
+ * 图片加圆角
+ */
+- (UIImage *)jc_imageWithCornerRadius:(CGFloat)cornerRadius;
+
 @end

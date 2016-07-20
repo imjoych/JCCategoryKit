@@ -68,4 +68,25 @@
     return imageData;
 }
 
+- (UIImage *)jc_imageWithCornerRadius:(CGFloat)cornerRadius
+{
+    CGFloat width = self.size.width;
+    CGFloat height = self.size.height;
+    
+    if (cornerRadius < 0) {
+        cornerRadius = 0;
+    } else if (cornerRadius > MIN(width, height)) {
+        cornerRadius = MIN(width, height) / 2.f;
+    }
+    
+    CGRect imageFrame = CGRectMake(0, 0, width, height);
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, [UIScreen mainScreen].scale);
+    [[UIBezierPath bezierPathWithRoundedRect:imageFrame cornerRadius:cornerRadius] addClip];
+    [self drawInRect:imageFrame];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
+
 @end
