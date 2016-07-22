@@ -13,7 +13,7 @@
 + (UIImage *)jc_createImageWithColor:(UIColor *)color
 {
     CGRect rect = CGRectMake(0, 0, 1.f, 1.f);
-    UIGraphicsBeginImageContextWithOptions(rect.size, NO, [UIScreen mainScreen].scale);
+    UIGraphicsBeginImageContextWithOptions(rect.size, YES, 0);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetFillColorWithColor(context, [color CGColor]);
     CGContextFillRect(context, rect);
@@ -24,7 +24,7 @@
 
 - (UIImage *)jc_imageWithColor:(UIColor *)color
 {
-    UIGraphicsBeginImageContextWithOptions(self.size, NO, [UIScreen mainScreen].scale);
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, 0);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextTranslateCTM(context, 0, self.size.height);
     CGContextScaleCTM(context, 1.0, -1.0);
@@ -40,8 +40,26 @@
 
 - (UIImage *)jc_scaleToSize:(CGSize)size
 {
-    UIGraphicsBeginImageContextWithOptions(size, NO, [UIScreen mainScreen].scale);
-    [self drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    return [self jc_scaleToSize:size opaque:YES];
+}
+
+- (UIImage *)jc_scaleToSize:(CGSize)size opaque:(BOOL)opaque
+{
+    if (CGSizeEqualToSize(self.size, size) || CGSizeEqualToSize(size, CGSizeZero)) {
+        return self;
+    }
+    UIGraphicsBeginImageContextWithOptions(size, opaque, 0);
+    CGRect rect = CGRectMake(0, 0, size.width, size.height);
+    if (opaque) {
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        CGContextSaveGState(context);
+        CGContextTranslateCTM(context, 0, size.height);
+        CGContextScaleCTM(context, 1, -1);
+        CGContextDrawTiledImage(context, rect, self.CGImage);
+        CGContextRestoreGState(context);
+    } else {
+        [self drawInRect:rect];
+    }
     UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return scaledImage;
@@ -80,7 +98,7 @@
     }
     
     CGRect imageFrame = CGRectMake(0, 0, width, height);
-    UIGraphicsBeginImageContextWithOptions(self.size, NO, [UIScreen mainScreen].scale);
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, 0);
     [[UIBezierPath bezierPathWithRoundedRect:imageFrame cornerRadius:cornerRadius] addClip];
     [self drawInRect:imageFrame];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();

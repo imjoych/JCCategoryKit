@@ -30,8 +30,10 @@
 
 /**
  * 图片缩放
+ * @param opaque 不透明度, 默认为YES.
  */
 - (UIImage *)jc_scaleToSize:(CGSize)size;
+- (UIImage *)jc_scaleToSize:(CGSize)size opaque:(BOOL)opaque;
 
 /**
  * 图片压缩并转化成NSData
