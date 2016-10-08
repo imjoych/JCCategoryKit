@@ -13,6 +13,9 @@
 /// 返回 yyyy-mm-dd hh:mm 格式的时间字符串
 + (NSString *)jc_currentDate;
 
+/// 秒数转换为hh:mm:ss字符串时间格式
++ (NSString *)jc_timeStringWithSeconds:(int64_t)seconds;
+
 @end
 
 @interface NSDateFormatter (JCKit)

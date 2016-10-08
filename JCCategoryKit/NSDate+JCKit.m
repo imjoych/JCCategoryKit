@@ -19,6 +19,15 @@ static const char *kCachedDateFormattersKey;
     return [formatter stringFromDate:[NSDate date]];
 }
 
++ (NSString *)jc_timeStringWithSeconds:(int64_t)seconds
+{
+    int64_t second = seconds % 60;
+    int64_t minute = seconds / 60;
+    int64_t hour = minute / 60;
+    minute = minute % 60;
+    return [NSString stringWithFormat:@"%02lld:%02lld:%02lld", hour, minute, second];
+}
+
 @end
 
 @implementation NSDateFormatter (JCKit)
