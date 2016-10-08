@@ -58,4 +58,7 @@
 /// 16进制转10进制
 - (NSUInteger)jc_decimalNumberWithHexString;
 
+/// 秒数转换为hh:mm:ss字符串时间格式
+- (NSString *)jc_timeStringWithSeconds:(int64_t)seconds;
+
 @end
