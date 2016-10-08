@@ -15,11 +15,12 @@
 - (void)jc_exchangeTitleAndImagePositionWithOffset:(CGFloat)offset
 {
     if (!self.imageView.image
-        || !self.titleLabel.text) {
+        || !self.titleLabel.text
+        || !self.titleLabel.font) {
         return;
     }
     CGSize imageSize = self.imageView.image.size;
-    CGSize titleSize = self.titleLabel.frame.size;
+    CGSize titleSize = [self.titleLabel.text sizeWithAttributes:@{NSFontAttributeName : self.titleLabel.font}];
     self.titleEdgeInsets = UIEdgeInsetsMake(0, -imageSize.width - offset, 0, imageSize.width + offset);
     self.imageEdgeInsets = UIEdgeInsetsMake(0, titleSize.width + offset, 0, -titleSize.width - offset);
 }

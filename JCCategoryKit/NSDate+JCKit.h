@@ -10,7 +10,7 @@
 
 @interface NSDate (JCKit)
 
-/// 返回 yyyy-MM-dd HH:mm 格式的时间字符串
+/// 返回 yyyy-mm-dd hh:mm 格式的时间字符串
 + (NSString *)jc_currentDate;
 
 @end

@@ -13,9 +13,9 @@
 
 - (NSString *)jc_httpArgumentsString
 {
-    NSMutableArray *arguments = [NSMutableArray arrayWithCapacity:[self count]];
+    NSMutableArray *arguments = [NSMutableArray arrayWithCapacity:self.count];
     for (NSString *key in self.allKeys) {
-        [arguments addObject:[NSString stringWithFormat:@"%@=%@", [key jc_encodeString], [[[self objectForKey:key] description] jc_encodeString]]];
+        [arguments addObject:[NSString stringWithFormat:@"%@=%@", [key jc_encodeString], [[self[key] description] jc_encodeString]]];
     }
     return [arguments componentsJoinedByString:@"&"];
 }
@@ -32,7 +32,7 @@
         if (keyValue.count == 2) {
             NSString *key = keyValue[0];
             NSString *value = [keyValue[1] jc_decodeString];
-            [parameters setObject:value forKey:key];
+            parameters[key] = value;
         }
     }
     return parameters;

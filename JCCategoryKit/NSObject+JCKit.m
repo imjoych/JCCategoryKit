@@ -45,28 +45,23 @@
 
 - (void)jc_setPropertiesValuesWithDictionary:(NSDictionary *)dictionary
 {
-    NSDictionary *map = [self mapBetweenAttributesAndDictionary:dictionary];
-    for (id key in dictionary) {
-        NSString *modelKey = [map objectForKey:key];
-        if ([modelKey jc_isValidString]) {
-            SEL action = [self stringToSelector:modelKey];
+    [dictionary enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        if ([key jc_isValidString]) {
+            SEL action = [self stringToSelector:key];
             //属性赋值
-            if ([self respondsToSelector:action]) {
-                id value = [dictionary objectForKey:key];
-                if (value) {
+            if ([self respondsToSelector:action] && obj) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-                    [self performSelector:action withObject:value];
+                [self performSelector:action withObject:obj];
 #pragma clang diagnostic pop
-                }
             }
         }
-    }
+    }];
 }
 
 #pragma mark - Private
 
-// 根据字符串生成属性set方法
+/// 根据字符串生成属性set方法
 - (SEL)stringToSelector:(NSString *)modelKey
 {
     NSString *first = [[modelKey substringToIndex:1] uppercaseString];
@@ -75,23 +70,13 @@
     return NSSelectorFromString(methodString);
 }
 
-// 建立属性和字典之间的映射
-- (NSDictionary *)mapBetweenAttributesAndDictionary:(NSDictionary *)dictionary
-{
-    NSMutableDictionary *map = [NSMutableDictionary dictionaryWithCapacity:[dictionary count]];
-    for (id key in dictionary) {
-        [map setObject:key forKey:key];
-    }
-    return map;
-}
-
 @end
 
 @implementation NSObject (JCHookMethod)
 
-- (void)swizzlingInClass:(Class)cls
-        originalSelector:(SEL)originalSelector
-        swizzledSelector:(SEL)swizzledSelector
+- (void)jc_swizzlingInClass:(Class)cls
+           originalSelector:(SEL)originalSelector
+           swizzledSelector:(SEL)swizzledSelector;
 {
     Class class = cls;
     

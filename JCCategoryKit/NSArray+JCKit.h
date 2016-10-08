@@ -10,7 +10,7 @@
 
 typedef void(^JCEnumerateBlock)(id obj, NSUInteger idx);
 typedef BOOL (^JCPassingTestBlock)(id obj, NSUInteger idx);
-typedef id (^HJAssociatedBlock)(id obj, NSUInteger idx);
+typedef id (^JCAssociatedBlock)(id obj, NSUInteger idx);
 
 @interface NSArray (JCKit)
 
@@ -21,6 +21,6 @@ typedef id (^HJAssociatedBlock)(id obj, NSUInteger idx);
 - (NSArray *)jc_selectObjs:(JCPassingTestBlock)block;
 
 /// 获取与数组对象中相关联的一组数据
-- (NSArray *)jc_selectAssociatedObjs:(HJAssociatedBlock)block;
+- (NSArray *)jc_selectAssociatedObjs:(JCAssociatedBlock)block;
 
 @end

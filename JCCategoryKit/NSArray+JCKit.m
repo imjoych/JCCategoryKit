@@ -26,7 +26,7 @@
     }]];
 }
 
-- (NSArray *)jc_selectAssociatedObjs:(HJAssociatedBlock)block
+- (NSArray *)jc_selectAssociatedObjs:(JCAssociatedBlock)block
 {
     NSParameterAssert(block);
     __block NSMutableArray *associatedObjs = [NSMutableArray arrayWithCapacity:self.count];

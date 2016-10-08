@@ -23,8 +23,8 @@
 @interface NSObject (JCHookMethod)
 
 /// hook操作替换两个实例方法实现
-- (void)swizzlingInClass:(Class)cls
-        originalSelector:(SEL)originalSelector
-        swizzledSelector:(SEL)swizzledSelector;
+- (void)jc_swizzlingInClass:(Class)cls
+           originalSelector:(SEL)originalSelector
+           swizzledSelector:(SEL)swizzledSelector;
 
 @end
