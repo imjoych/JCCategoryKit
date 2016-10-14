@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'JCCategoryKit'
-  s.version      = '0.2.0'
+  s.version      = '0.2.1'
   s.license      = 'MIT'
   s.summary      = 'Category kit for iOS development.'
   s.homepage     = 'https://github.com/Boych/JCCategoryKit'
