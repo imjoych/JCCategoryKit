@@ -15,7 +15,7 @@ static const char *kCachedDateFormattersKey;
 
 + (NSString *)jc_currentDate
 {
-    NSDateFormatter *formatter = [NSDateFormatter jc_cachedDateFormatter:@"yyyy-mm-dd hh:mm"]; //:ss
+    NSDateFormatter *formatter = [NSDateFormatter jc_cachedDateFormatter:@"yyyy-MM-dd hh:mm"]; //:ss
     return [formatter stringFromDate:[NSDate date]];
 }
 
