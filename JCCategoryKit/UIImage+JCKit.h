@@ -10,39 +10,26 @@
 
 @interface UIImage (JCKit)
 
-/**
- *  UIColor 转 UIImage
- *
- *  @param color
- *
- *  @return UIImage
- */
+/// UIColor生成UIImage
 + (UIImage *)jc_createImageWithColor:(UIColor *)color;
 
-/**
- *  更改图片颜色
- *
- *  @param color 图片颜色
- *
- *  @return 处理好的图片
- */
+/// 更改图片颜色
 - (UIImage *)jc_imageWithColor:(UIColor *)color;
 
 /**
  * 图片缩放
- * @param opaque 不透明度, 默认为YES.
  */
 - (UIImage *)jc_scaleToSize:(CGSize)size;
+/**
+ * 图片缩放
+ * opaque 不透明度, 默认为YES.
+ */
 - (UIImage *)jc_scaleToSize:(CGSize)size opaque:(BOOL)opaque;
 
-/**
- * 图片压缩并转化成NSData
- */
+/// 图片压缩并转化成NSData
 - (NSData *)jc_compressWithLimitSize:(NSInteger)limitSize;
 
-/**
- * 图片加圆角
- */
+/// 图片加圆角
 - (UIImage *)jc_imageWithCornerRadius:(CGFloat)cornerRadius;
 
 @end
