@@ -3,7 +3,7 @@
 //  JCCategoryKit
 //
 //  Created by ChenJianjun on 16/7/23.
-//  Copyright © 2016年 Boych<https://github.com/Boych>. All rights reserved.
+//  Copyright © 2016 Joych<https://github.com/imjoych>. All rights reserved.
 //
 
 #import "UILabel+JCGUI.h"
