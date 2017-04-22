@@ -15,13 +15,13 @@
 		23C460F81D43438400FABD95 /* NSString+JCKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C460EC1D43438400FABD95 /* NSString+JCKit.m */; };
 		23C460F91D43438400FABD95 /* UIButton+JCKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C460EE1D43438400FABD95 /* UIButton+JCKit.m */; };
 		23C460FA1D43438400FABD95 /* UIColor+JCKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C460F01D43438400FABD95 /* UIColor+JCKit.m */; };
-		23C460FB1D43438400FABD95 /* UIImage+JCKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C460F21D43438400FABD95 /* UIImage+JCKit.m */; };
 		23C461061D4343A900FABD95 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C460FE1D4343A900FABD95 /* AppDelegate.m */; };
 		23C461071D4343A900FABD95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23C460FF1D4343A900FABD95 /* Assets.xcassets */; };
 		23C461081D4343A900FABD95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23C461001D4343A900FABD95 /* LaunchScreen.storyboard */; };
 		23C4610A1D4343A900FABD95 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C461031D4343A900FABD95 /* main.m */; };
 		23C4610B1D4343A900FABD95 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C461051D4343A900FABD95 /* ViewController.m */; };
 		23C4610F1D4347EB00FABD95 /* UILabel+JCGUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C4610E1D4347EB00FABD95 /* UILabel+JCGUI.m */; };
+		23C89B1D1EABAA10007E4C35 /* UIImage+JCKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C89B1C1EABAA10007E4C35 /* UIImage+JCKit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,8 +42,6 @@
 		23C460EE1D43438400FABD95 /* UIButton+JCKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+JCKit.m"; sourceTree = "<group>"; };
 		23C460EF1D43438400FABD95 /* UIColor+JCKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+JCKit.h"; sourceTree = "<group>"; };
 		23C460F01D43438400FABD95 /* UIColor+JCKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+JCKit.m"; sourceTree = "<group>"; };
-		23C460F11D43438400FABD95 /* UIImage+JCKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JCKit.h"; sourceTree = "<group>"; };
-		23C460F21D43438400FABD95 /* UIImage+JCKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JCKit.m"; sourceTree = "<group>"; };
 		23C460FD1D4343A900FABD95 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		23C460FE1D4343A900FABD95 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		23C460FF1D4343A900FABD95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -54,6 +52,8 @@
 		23C461051D4343A900FABD95 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		23C4610D1D4347EB00FABD95 /* UILabel+JCGUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+JCGUI.h"; sourceTree = "<group>"; };
 		23C4610E1D4347EB00FABD95 /* UILabel+JCGUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+JCGUI.m"; sourceTree = "<group>"; };
+		23C89B1B1EABAA10007E4C35 /* UIImage+JCKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JCKit.h"; sourceTree = "<group>"; };
+		23C89B1C1EABAA10007E4C35 /* UIImage+JCKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JCKit.m"; sourceTree = "<group>"; };
 		23F2AF961D26569400ABC338 /* JCCategoryKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JCCategoryKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -88,8 +88,8 @@
 				23C460EE1D43438400FABD95 /* UIButton+JCKit.m */,
 				23C460EF1D43438400FABD95 /* UIColor+JCKit.h */,
 				23C460F01D43438400FABD95 /* UIColor+JCKit.m */,
-				23C460F11D43438400FABD95 /* UIImage+JCKit.h */,
-				23C460F21D43438400FABD95 /* UIImage+JCKit.m */,
+				23C89B1B1EABAA10007E4C35 /* UIImage+JCKit.h */,
+				23C89B1C1EABAA10007E4C35 /* UIImage+JCKit.m */,
 				23C4610D1D4347EB00FABD95 /* UILabel+JCGUI.h */,
 				23C4610E1D4347EB00FABD95 /* UILabel+JCGUI.m */,
 			);
@@ -200,8 +200,8 @@
 				23C460F41D43438400FABD95 /* NSData+JCKit.m in Sources */,
 				23C4610F1D4347EB00FABD95 /* UILabel+JCGUI.m in Sources */,
 				23C460F51D43438400FABD95 /* NSDate+JCKit.m in Sources */,
-				23C460FB1D43438400FABD95 /* UIImage+JCKit.m in Sources */,
 				23C460F91D43438400FABD95 /* UIButton+JCKit.m in Sources */,
+				23C89B1D1EABAA10007E4C35 /* UIImage+JCKit.m in Sources */,
 				23C461061D4343A900FABD95 /* AppDelegate.m in Sources */,
 				23C460F81D43438400FABD95 /* NSString+JCKit.m in Sources */,
 				23C4610B1D4343A900FABD95 /* ViewController.m in Sources */,
