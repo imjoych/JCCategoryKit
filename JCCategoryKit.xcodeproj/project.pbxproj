@@ -154,8 +154,9 @@
 		23F2AF7E1D26567E00ABC338 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = JC;
 				LastUpgradeCheck = 0830;
-				ORGANIZATIONNAME = "Boych<https://github.com/Boych>";
+				ORGANIZATIONNAME = "Joych<https://github.com/imjoych>";
 				TargetAttributes = {
 					23F2AF951D26569400ABC338 = {
 						CreatedOnToolsVersion = 7.3.1;

@@ -18,7 +18,7 @@
 - (void)kitTest
 {
     BOOL testBOOL = [@"ioschen@foxmail.com" jc_isEmailValid];
-    testBOOL = [@"https://github.com/Boych" jc_isUrlValid];
+    testBOOL = [@"https://github.com/imjoych" jc_isUrlValid];
     testBOOL = [@"https://" jc_isUrlValid];
     testBOOL = [@"16212345678" jc_isPhoneNumber];
     testBOOL = [@"18212345678" jc_isPhoneNumber];
