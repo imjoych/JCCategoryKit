@@ -13,8 +13,8 @@
 /// URL参数拼接
 - (NSString *)jc_appendURLKeysAndValuesString;
 
-/// 原始URL拼接请求参数
-- (NSString *)jc_appendWithOriginUrl:(NSString *)originUrl;
+/// URL拼接请求参数
++ (NSString *)jc_appendWithUrl:(NSString *)url params:(NSDictionary *)params;
 
 /// 解析URL请求返回的query
 + (NSDictionary *)jc_parseURLQuery:(NSString *)query;

@@ -17,8 +17,16 @@
 
 - (void)kitTest
 {
+    NSString *url = @"https://github.com/imjoych";
+    NSDictionary *dict = @{@"action":@"home", @"type":@(2), @"desc":@"hhh"};
+    NSString *requestUrl = [NSDictionary jc_appendWithUrl:url params:dict];
+    NSLog(@"requestUrl = %@", requestUrl);
+    url = [NSString stringWithFormat:@"%@#activity=justdoit", requestUrl];
+    dict = @{@"how":@"follow me"};
+    requestUrl = [NSDictionary jc_appendWithUrl:url params:dict];
+    NSLog(@"requestUrl = %@", requestUrl);
     BOOL testBOOL = [@"ioschen@foxmail.com" jc_isEmailValid];
-    testBOOL = [@"https://github.com/imjoych" jc_isUrlValid];
+    testBOOL = [url jc_isUrlValid];
     testBOOL = [@"https://" jc_isUrlValid];
     testBOOL = [@"16212345678" jc_isPhoneNumber];
     testBOOL = [@"18212345678" jc_isPhoneNumber];

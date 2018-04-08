@@ -23,21 +23,21 @@
     return [arguments componentsJoinedByString:@"&"];
 }
 
-- (NSString *)jc_appendWithOriginUrl:(NSString *)originUrl
++ (NSString *)jc_appendWithUrl:(NSString *)url params:(NSDictionary *)params
 {
-    if (!originUrl || originUrl.length < 1 || self.count < 1) {
-        return originUrl;
+    if (!url || url.length < 1 || params.count < 1) {
+        return url;
     }
-    NSString *symbol = [originUrl containsString:@"?"] ? @"&":@"?";
-    NSString *paramsString = [self jc_appendURLKeysAndValuesString];
+    NSString *symbol = [url containsString:@"?"] ? @"&":@"?";
+    NSString *paramsString = [params jc_appendURLKeysAndValuesString];
     // 处理锚点
     NSString *anchorString = @"";
-    NSRange anchorRange = [originUrl rangeOfString:@"#"];
+    NSRange anchorRange = [url rangeOfString:@"#"];
     if (anchorRange.location != NSNotFound) {
-        anchorString = [originUrl substringFromIndex:anchorRange.location];
-        originUrl = [originUrl substringToIndex:anchorRange.location];
+        anchorString = [url substringFromIndex:anchorRange.location];
+        url = [url substringToIndex:anchorRange.location];
     }
-    return [NSString stringWithFormat:@"%@%@%@%@", originUrl, symbol, paramsString, anchorString];
+    return [NSString stringWithFormat:@"%@%@%@%@", url, symbol, paramsString, anchorString];
 }
 
 + (NSDictionary *)jc_parseURLQuery:(NSString *)query
