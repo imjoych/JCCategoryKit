@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#if !TARGET_OS_WATCH
+
 @interface UILabel (JCGUI)
 
 /// 处理UILabel混合图层，默认背景为[UIColor whiteColor].
@@ -17,3 +19,5 @@
 - (void)jc_resetBlendedLayersWithColor:(UIColor *)color;
 
 @end
+
+#endif

@@ -8,6 +8,8 @@
 
 #import "UILabel+JCGUI.h"
 
+#if !TARGET_OS_WATCH
+
 @implementation UILabel (JCGUI)
 
 - (void)jc_resetBlendedLayers
@@ -23,3 +25,5 @@
 }
 
 @end
+
+#endif

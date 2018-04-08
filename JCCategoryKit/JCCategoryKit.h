@@ -20,9 +20,10 @@ FOUNDATION_EXPORT const unsigned char JCKitVersionString[];
 #import "NSDictionary+JCKit.h"
 #import "NSObject+JCKit.h"
 #import "NSString+JCKit.h"
-#import "UIButton+JCKit.h"
 #import "UIColor+JCKit.h"
 #import "UIImage+JCKit.h"
+
+#if !TARGET_OS_WATCH
+#import "UIButton+JCKit.h"
 #import "UILabel+JCGUI.h"
-
-
+#endif

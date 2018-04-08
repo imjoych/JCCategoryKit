@@ -7,6 +7,9 @@
 //
 
 #import "UIButton+JCKit.h"
+
+#if !TARGET_OS_WATCH
+
 #import "UIImage+JCKit.h"
 #import <objc/runtime.h>
 
@@ -80,3 +83,5 @@ static NSString *const JCHitTestEdgeInsetsKey;
 }
 
 @end
+
+#endif

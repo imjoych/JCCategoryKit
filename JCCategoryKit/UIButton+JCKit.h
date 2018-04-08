@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#if !TARGET_OS_WATCH
+
 @interface UIButton (JCKit)
 
 /**
@@ -31,3 +33,5 @@
 @property (nonatomic, assign) UIEdgeInsets jc_hitTestEdgeInsets; ///< 扩展按钮点击区域
 
 @end
+
+#endif
