@@ -30,14 +30,31 @@
 
 @implementation NSString (JCStringEncoding)
 
-- (NSString *)jc_encodeString
+- (NSString *)jc_encodedString
 {
-    return [self stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    CFStringRef encodedCFString = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                                                          (__bridge CFStringRef)self,
+                                                                          nil,
+                                                                          CFSTR("?!@#$^&%*+,:;='\"`<>()[]{}/\\| "),
+                                                                          kCFStringEncodingUTF8);
+    return (__bridge_transfer NSString *)encodedCFString ?:@"";
+#pragma clang diagnostic pop
 }
 
-- (NSString *)jc_decodeString
+- (NSString *)jc_decodedString
 {
-    return [self stringByRemovingPercentEncoding];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    CFStringRef decodedCFString = CFURLCreateStringByReplacingPercentEscapesUsingEncoding(kCFAllocatorDefault,
+                                                                                          (__bridge CFStringRef)self,
+                                                                                          CFSTR(""),
+                                                                                          kCFStringEncodingUTF8);
+    // We need to replace "+" with " " because the CF method above doesn't do it
+    NSString *decodedString = (__bridge_transfer NSString *)decodedCFString;
+    return decodedString ? [decodedString stringByReplacingOccurrencesOfString:@"+" withString:@" "] : @"";
+#pragma clang diagnostic pop
 }
 
 @end
@@ -99,7 +116,7 @@
 
 @implementation NSString (JCStringExchange)
 
-- (NSString *)jc_md5
+- (NSString *)jc_MD5String
 {
     const char *cString = [self UTF8String];
     unsigned char result[16];

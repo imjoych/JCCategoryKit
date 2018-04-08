@@ -11,16 +11,19 @@
 
 @implementation NSDictionary (JCKit)
 
-- (NSString *)jc_httpArgumentsString
+- (NSString *)jc_appendURLKeysAndValuesString
 {
+    if (self.count < 1) {
+        return @"";
+    }
     NSMutableArray *arguments = [NSMutableArray arrayWithCapacity:self.count];
     for (NSString *key in self.allKeys) {
-        [arguments addObject:[NSString stringWithFormat:@"%@=%@", [key jc_encodeString], [[self[key] description] jc_encodeString]]];
+        [arguments addObject:[NSString stringWithFormat:@"%@=%@", [key jc_encodedString], [[self[key] description] jc_encodedString]]];
     }
     return [arguments componentsJoinedByString:@"&"];
 }
 
-+ (NSDictionary *)jc_parseHttpURLQuery:(NSString *)query
++ (NSDictionary *)jc_parseURLQuery:(NSString *)query
 {
     if (![query jc_isValidString]) {
         return nil;
@@ -31,7 +34,7 @@
         NSArray *keyValue = [pair componentsSeparatedByString:@"="];
         if (keyValue.count == 2) {
             NSString *key = keyValue[0];
-            NSString *value = [keyValue[1] jc_decodeString];
+            NSString *value = [keyValue[1] jc_decodedString];
             parameters[key] = value;
         }
     }

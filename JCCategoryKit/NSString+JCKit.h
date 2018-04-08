@@ -23,10 +23,10 @@
 @interface NSString (JCStringEncoding)
 
 /// 字符串编码
-- (NSString *)jc_encodeString;
+- (NSString *)jc_encodedString;
 
 /// 字符串解码
-- (NSString *)jc_decodeString;
+- (NSString *)jc_decodedString;
 
 @end
 
@@ -53,7 +53,7 @@
 @interface NSString (JCStringExchange)
 
 /// MD5加密
-- (NSString *)jc_md5;
+- (NSString *)jc_MD5String;
 
 /// 16进制转10进制
 - (NSUInteger)jc_decimalNumberWithHexString;

@@ -10,10 +10,10 @@
 
 @interface NSDictionary (JCKit)
 
-/// 拼接http请求接口传参
-- (NSString *)jc_httpArgumentsString;
+/// 拼接URL请求参数
+- (NSString *)jc_appendURLKeysAndValuesString;
 
-/// 解析网络请求返回的query
-+ (NSDictionary *)jc_parseHttpURLQuery:(NSString *)query;
+/// 解析URL请求返回的query
++ (NSDictionary *)jc_parseURLQuery:(NSString *)query;
 
 @end
