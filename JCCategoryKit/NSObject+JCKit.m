@@ -74,27 +74,26 @@
 
 @implementation NSObject (JCHookMethod)
 
-- (void)jc_swizzlingInClass:(Class)cls
-           originalSelector:(SEL)originalSelector
-           swizzledSelector:(SEL)swizzledSelector;
++ (void)jc_hookWithOriginalSelector:(SEL)originalSelector replaceSelector:(SEL)replaceSelector
 {
-    Class class = cls;
-    
+    Class class = [self class];
     Method originalMethod = class_getInstanceMethod(class, originalSelector);
-    Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
+    Method replaceMethod = class_getInstanceMethod(class, replaceSelector);
+    if (!originalMethod || !replaceMethod) {
+        return;
+    }
     
     BOOL didAddMethod = class_addMethod(class,
                                         originalSelector,
-                                        method_getImplementation(swizzledMethod),
-                                        method_getTypeEncoding(swizzledMethod));
-    
+                                        method_getImplementation(replaceMethod),
+                                        method_getTypeEncoding(replaceMethod));
     if (didAddMethod) {
         class_replaceMethod(class,
-                            swizzledSelector,
+                            replaceSelector,
                             method_getImplementation(originalMethod),
                             method_getTypeEncoding(originalMethod));
     } else {
-        method_exchangeImplementations(originalMethod, swizzledMethod);
+        method_exchangeImplementations(originalMethod, replaceMethod);
     }
 }
 
