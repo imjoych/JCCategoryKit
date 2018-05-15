@@ -16,9 +16,7 @@
 /// 更改图片颜色
 - (UIImage *)jc_imageWithColor:(UIColor *)color;
 
-/**
- * 图片缩放
- */
+/// 图片缩放
 - (UIImage *)jc_scaleToSize:(CGSize)size;
 - (UIImage *)jc_scaleToSize:(CGSize)size opaque:(BOOL)opaque;
 
