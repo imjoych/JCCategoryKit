@@ -8,18 +8,9 @@
 
 #import "NSString+JCKit.h"
 #import <CommonCrypto/CommonDigest.h>
+#import "NSObject+JCKit.h"
 
 @implementation NSString (JCKit)
-
-- (BOOL)jc_isValidString
-{
-    if (!self
-        || [self isEqualToString:@"(null)"]
-        || [self jc_stringByTrimmingCharacters].length < 1) {
-        return NO;
-    }
-    return YES;
-}
 
 - (NSString *)jc_stringByTrimmingCharacters
 {

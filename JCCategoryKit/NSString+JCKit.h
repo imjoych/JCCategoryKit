@@ -10,9 +10,6 @@
 
 @interface NSString (JCKit)
 
-/// 有效字符串判断
-- (BOOL)jc_isValidString;
-
 /// 去除字符串首尾空格和换行
 - (NSString *)jc_stringByTrimmingCharacters;
 

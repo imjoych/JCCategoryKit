@@ -7,10 +7,18 @@
 //
 
 #import "NSObject+JCKit.h"
-#import "NSString+JCKit.h"
 #import <objc/runtime.h>
 
 @implementation NSObject (JCKit)
+
+- (BOOL)jc_isValidString
+{
+    if ([self isKindOfClass:[NSString class]]
+        && [(NSString *)self length] > 0) {
+        return YES;
+    }
+    return NO;
+}
 
 - (BOOL)jc_isValidObject
 {

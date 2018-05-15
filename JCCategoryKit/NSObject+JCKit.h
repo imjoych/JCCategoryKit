@@ -10,6 +10,9 @@
 
 @interface NSObject (JCKit)
 
+/// 有效字符串判断
+- (BOOL)jc_isValidString;
+
 /// 有效实例对象判断
 - (BOOL)jc_isValidObject;
 

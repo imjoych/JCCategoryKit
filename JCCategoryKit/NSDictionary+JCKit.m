@@ -8,6 +8,7 @@
 
 #import "NSDictionary+JCKit.h"
 #import "NSString+JCKit.h"
+#import "NSObject+JCKit.h"
 
 @implementation NSDictionary (JCKit)
 
