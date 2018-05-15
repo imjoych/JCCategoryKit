@@ -13,42 +13,42 @@
 
 - (BOOL)jc_isValidString
 {
-    if ([self isKindOfClass:[NSString class]]
-        && [(NSString *)self length] > 0) {
-        return YES;
+    if ([self isKindOfClass:[NSString class]]) {
+        return [(NSString *)self length] > 0;
     }
     return NO;
 }
 
-- (BOOL)jc_isValidObject
+- (BOOL)jc_isValidData
 {
-    if (!self
-        || NULL == self
-        || [NSNull null] == self) {
-        return NO;
-    }
-    
-    if ([self isKindOfClass:[NSString class]]) {
-        return [(NSString *)self jc_isValidString];
-    }
-    
-    if ([self isKindOfClass:[NSDictionary class]]) {
-        return [(NSDictionary *)self count] > 0;
-    }
-    
-    if ([self isKindOfClass:[NSArray class]]) {
-        return [(NSArray *)self count] > 0;
-    }
-    
     if ([self isKindOfClass:[NSData class]]) {
         return [(NSData *)self length] > 0;
     }
-    
+    return NO;
+}
+
+- (BOOL)jc_isValidArray
+{
+    if ([self isKindOfClass:[NSArray class]]) {
+        return [(NSArray *)self count] > 0;
+    }
+    return NO;
+}
+
+- (BOOL)jc_isValidDictionary
+{
+    if ([self isKindOfClass:[NSDictionary class]]) {
+        return [(NSDictionary *)self count] > 0;
+    }
+    return NO;
+}
+
+- (BOOL)jc_isValidSet
+{
     if ([self isKindOfClass:[NSSet class]]) {
         return [(NSSet *)self count] > 0;
     }
-    
-    return YES;
+    return NO;
 }
 
 - (void)jc_setPropertiesValuesWithDictionary:(NSDictionary *)dictionary
