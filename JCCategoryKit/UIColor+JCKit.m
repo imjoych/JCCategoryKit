@@ -12,8 +12,9 @@
 
 + (UIColor *)jc_colorWithHexString:(NSString *)hexString
 {
+    NSParameterAssert([hexString isKindOfClass:[NSString class]]);
     NSString *colorString = [[hexString stringByReplacingOccurrencesOfString:@"#" withString:@""] uppercaseString];
-    CGFloat alpha, red, blue, green;
+    CGFloat alpha = 0.f, red = 1.f, blue = 1.f, green = 1.f;
     switch ([colorString length]) {
         case 3: // #RGB
             alpha = 1.0f;
@@ -40,7 +41,7 @@
             blue  = [self colorComponentFrom:colorString start:6 length:2];
             break;
         default:
-            [NSException raise:@"Invalid color value" format:@"Color value %@ is invalid. It should be a hex value of the form #RBG, #ARGB, #RRGGBB, or #AARRGGBB", hexString];
+            NSAssert(NO, @"Color value %@ is invalid. It should be a hex value of the form #RBG, #ARGB, #RRGGBB, or #AARRGGBB.", hexString);
             break;
     }
     return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
