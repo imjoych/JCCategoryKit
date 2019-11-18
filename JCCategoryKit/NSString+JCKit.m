@@ -73,14 +73,14 @@
 
 /*
  * ^[1]，首字母必须是1
- * [3-9]+，第二个数字为3到9之间的一个
+ * [3-9]，第二个数字为3到9之间的一个
  * \\d，表示数字
  * {9}，表示后面包含9个数字
  * $，结束符
  */
 - (BOOL)jc_isPhoneNumber
 {
-    return [self jc_stringCheckingWithPattern:@"^[1][3-9]+\\d{9}$"];
+    return [self jc_stringCheckingWithPattern:@"^[1][3-9]\\d{9}$"];
 }
 
 - (BOOL)jc_isUrlValid
